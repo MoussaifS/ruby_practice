@@ -98,10 +98,8 @@ class GameBoard
     end
   end
 
-  while $GameOn
+  loop do
     rounds = 0
-
-
     loop do
       puts 'player 1 turn'
       player1.move
@@ -110,21 +108,25 @@ class GameBoard
     end
     result(player1.playerMove , player1.name)
 
-    # loop do
-    #   puts 'player 2 turn'
-    #   player2.move
-    #   gridFill(player2.playerMovePop, player2.symbol)
-    #   break if $roundOn == false
-    # end
-    # result(player2.playerMove , player2.name)
-
-    
-    
-    # if rounds == 9
-    #   puts 'the game is tie'
-    #   $GameOn = false
-    # end
+    if $GameOn
+    loop do
+      puts 'player 2 turn'
+      player2.move
+      gridFill(player2.playerMovePop, player2.symbol)
+      break if $roundOn == false
+    end
+    result(player2.playerMove , player2.name)
   end
+
+    round =+ 1 
+    
+    
+    if rounds == 9
+      puts 'the game is tie'
+    end
+  break if rounds == 9 || $GameOn == false
+  end
+
 end
 
 GameBoard.new
