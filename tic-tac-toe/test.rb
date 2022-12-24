@@ -38,6 +38,14 @@
 # # end
 
 
+loop do 
+    round = 0
+    p "#{round}"
+    round =+ 1
+    break if round == 10
+end
+
+
 
 a = [] 
 
