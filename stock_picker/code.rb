@@ -2,19 +2,26 @@ def stock_picker(stockArray)
   low = stockArray[0]
   high = 0
   best_deal = []
-
+  profit = 0
   buy = []
   sell = []
 
   for i in 0..stockArray.length - 1
-    low = stockArray[i] if low >= stockArray[i]
-  end
-  best_deal.push(low)
-  for i in stockArray.index(low) + 1..stockArray.length - 1
-    high = stockArray[i] if high <= stockArray[i]
-  end
-  best_deal.push(high)
 
+    if low >= stockArray[i]
+      low = stockArray[i]
+      for x in stockArray[i] + 1..stockArray.length - 1
+        if(high <= stockArray[x])
+        high = stockArray[x]
+        if(low + high > profit)
+          p profit = low + high
+          best_deal.push(stockArray.index(low))
+          best_deal.push(stockArray.index(high))
+        end 
+      end
+    end
+  end
+  end
   best_deal
 end
 

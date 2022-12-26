@@ -1,3 +1,5 @@
+require 'pry-byebug'
+
 class Player
   $playerMove = []
   
@@ -46,8 +48,8 @@ class GameBoard
   $GameOn = true
   $roundOn = true
   $gameBoard = [[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']]
-
- 
+  
+  
 
   def self.gridFill (playerPosition , playerSymbol)
     row = playerPosition[0]
@@ -119,7 +121,7 @@ class GameBoard
   end
 
     round =+ 1 
-    
+    binding.pry
     
     if rounds == 9
       puts 'the game is tie'
